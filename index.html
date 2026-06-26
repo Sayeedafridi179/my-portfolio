@@ -1,0 +1,1021 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sayeed Afridi — Graphic Designer</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Bebas+Neue&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #0A0A0A;
+    --paper: #F5F2ED;
+    --red: #E8192C;
+    --gold: #C9A84C;
+    --mid: #1A1A1A;
+    --muted: #555;
+    --border: rgba(255,255,255,0.08);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--ink);
+    color: var(--paper);
+    font-family: 'Space Grotesk', sans-serif;
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 20px 48px;
+    background: rgba(10,10,10,0.85);
+    backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-logo {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.6rem;
+    letter-spacing: 0.15em;
+    color: var(--paper);
+  }
+  .nav-logo span { color: var(--red); }
+  .nav-links { display: flex; gap: 36px; list-style: none; }
+  .nav-links a {
+    color: rgba(245,242,237,0.55);
+    text-decoration: none;
+    font-size: 0.82rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    transition: color 0.25s;
+  }
+  .nav-links a:hover { color: var(--paper); }
+
+  /* ── HERO ── */
+  #hero {
+    min-height: 100vh;
+    display: flex; align-items: center;
+    padding: 120px 48px 80px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-bg {
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse 60% 80% at 75% 50%, rgba(232,25,44,0.08) 0%, transparent 70%),
+      radial-gradient(ellipse 40% 60% at 20% 80%, rgba(201,168,76,0.06) 0%, transparent 60%);
+  }
+  .hero-grid {
+    position: absolute; inset: 0; opacity: 0.03;
+    background-image: linear-gradient(rgba(245,242,237,1) 1px, transparent 1px),
+                      linear-gradient(90deg, rgba(245,242,237,1) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+  .hero-content { position: relative; z-index: 2; max-width: 900px; }
+  .hero-eyebrow {
+    display: inline-flex; align-items: center; gap: 12px;
+    font-size: 0.75rem; letter-spacing: 0.25em; text-transform: uppercase;
+    color: var(--red); margin-bottom: 28px;
+  }
+  .hero-eyebrow::before {
+    content: ''; width: 32px; height: 1px; background: var(--red);
+  }
+  .hero-name {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(5rem, 13vw, 11rem);
+    line-height: 0.9;
+    letter-spacing: -0.01em;
+  }
+  .hero-name .line2 { color: transparent; -webkit-text-stroke: 1px rgba(245,242,237,0.3); }
+  .hero-tagline {
+    margin-top: 36px;
+    font-size: clamp(1rem, 2vw, 1.25rem);
+    font-weight: 300;
+    color: rgba(245,242,237,0.6);
+    max-width: 480px;
+    line-height: 1.7;
+  }
+  .hero-cta {
+    margin-top: 52px;
+    display: flex; gap: 20px; flex-wrap: wrap;
+  }
+  .btn-primary {
+    padding: 14px 36px;
+    background: var(--red);
+    color: #fff;
+    border: none; border-radius: 2px;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.85rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s;
+    text-decoration: none;
+  }
+  .btn-primary:hover { background: #c5111e; transform: translateY(-2px); }
+  .btn-ghost {
+    padding: 14px 36px;
+    background: transparent;
+    color: var(--paper);
+    border: 1px solid rgba(245,242,237,0.25);
+    border-radius: 2px;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.85rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: border-color 0.2s, transform 0.2s;
+    text-decoration: none;
+  }
+  .btn-ghost:hover { border-color: var(--paper); transform: translateY(-2px); }
+  .hero-stats {
+    position: absolute; right: 48px; bottom: 80px;
+    display: flex; flex-direction: column; gap: 28px;
+    text-align: right;
+  }
+  .stat-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2.8rem;
+    color: var(--gold);
+    line-height: 1;
+  }
+  .stat-label {
+    font-size: 0.72rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: rgba(245,242,237,0.4);
+    margin-top: 2px;
+  }
+
+  /* ── SECTION BASE ── */
+  section { padding: 120px 48px; }
+  .section-label {
+    font-size: 0.72rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--red);
+    margin-bottom: 16px;
+  }
+  .section-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(2.8rem, 6vw, 5rem);
+    letter-spacing: 0.02em;
+    line-height: 1;
+    margin-bottom: 48px;
+  }
+  .divider {
+    width: 100%; height: 1px;
+    background: linear-gradient(90deg, var(--red) 0%, transparent 60%);
+    margin-bottom: 72px;
+  }
+
+  /* ── ABOUT ── */
+  #about { background: var(--mid); }
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: start;
+  }
+  .about-bio {
+    font-size: 1.05rem;
+    line-height: 1.85;
+    color: rgba(245,242,237,0.75);
+    font-weight: 300;
+  }
+  .about-bio strong { color: var(--paper); font-weight: 500; }
+  .skills-grid {
+    display: flex; flex-direction: column; gap: 20px;
+  }
+  .skill-row { display: flex; flex-direction: column; gap: 8px; }
+  .skill-meta {
+    display: flex; justify-content: space-between;
+    font-size: 0.82rem;
+    color: rgba(245,242,237,0.65);
+    letter-spacing: 0.05em;
+  }
+  .skill-bar {
+    height: 3px;
+    background: rgba(245,242,237,0.1);
+    border-radius: 1px;
+    overflow: hidden;
+  }
+  .skill-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--red), var(--gold));
+    border-radius: 1px;
+    transform-origin: left;
+    animation: fillBar 1.4s ease forwards;
+    animation-play-state: paused;
+  }
+  @keyframes fillBar { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+  .skill-fill.animate { animation-play-state: running; }
+
+  /* ── EXPERIENCE ── */
+  #experience { background: var(--ink); }
+  .exp-list { display: flex; flex-direction: column; gap: 0; }
+  .exp-item {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 48px;
+    padding: 48px 0;
+    border-bottom: 1px solid var(--border);
+    transition: background 0.2s;
+  }
+  .exp-item:first-child { border-top: 1px solid var(--border); }
+  .exp-period {
+    font-size: 0.78rem;
+    letter-spacing: 0.1em;
+    color: rgba(245,242,237,0.35);
+    text-transform: uppercase;
+    padding-top: 4px;
+  }
+  .exp-role {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.6rem;
+    letter-spacing: 0.05em;
+    margin-bottom: 6px;
+  }
+  .exp-company {
+    font-size: 0.85rem;
+    color: var(--red);
+    letter-spacing: 0.08em;
+    margin-bottom: 16px;
+  }
+  .exp-desc {
+    font-size: 0.9rem;
+    line-height: 1.8;
+    color: rgba(245,242,237,0.55);
+    font-weight: 300;
+  }
+
+  /* ── PORTFOLIO ── */
+  #portfolio { background: var(--mid); }
+  .portfolio-filter {
+    display: flex; gap: 4px; margin-bottom: 48px; flex-wrap: wrap;
+  }
+  .filter-btn {
+    padding: 8px 22px;
+    background: transparent;
+    border: 1px solid rgba(245,242,237,0.15);
+    color: rgba(245,242,237,0.5);
+    border-radius: 2px;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.78rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .filter-btn.active, .filter-btn:hover {
+    background: var(--red);
+    border-color: var(--red);
+    color: #fff;
+  }
+  .portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3px;
+  }
+  .portfolio-item {
+    position: relative;
+    aspect-ratio: 4/3;
+    overflow: hidden;
+    background: #111;
+    cursor: pointer;
+  }
+  .portfolio-item.wide { grid-column: span 2; }
+  .portfolio-item.tall { grid-row: span 2; aspect-ratio: auto; }
+  .portfolio-thumb {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+  .portfolio-overlay {
+    position: absolute; inset: 0;
+    background: rgba(10,10,10,0);
+    display: flex; flex-direction: column;
+    justify-content: flex-end;
+    padding: 28px;
+    transition: background 0.35s;
+  }
+  .portfolio-item:hover .portfolio-overlay { background: rgba(10,10,10,0.78); }
+  .portfolio-item:hover .portfolio-thumb { transform: scale(1.06); }
+  .portfolio-info { transform: translateY(16px); opacity: 0; transition: all 0.3s; }
+  .portfolio-item:hover .portfolio-info { transform: translateY(0); opacity: 1; }
+  .portfolio-cat {
+    font-size: 0.68rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--red);
+    margin-bottom: 6px;
+  }
+  .portfolio-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.4rem;
+    letter-spacing: 0.06em;
+  }
+
+  /* Design category cards (visual representation of work) */
+  .design-card {
+    width: 100%; height: 100%;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.2rem;
+    letter-spacing: 0.1em;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* ── DESIGN SHOWCASE CARDS ── */
+  .card-flyer1 {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+  }
+  .card-flyer1::before {
+    content: 'CLEANING SERVICES';
+    position: absolute;
+    font-family: 'Bebas Neue'; font-size: 2rem; letter-spacing: 0.15em;
+    color: #FFD700; text-align: center; line-height: 1.3;
+    top: 50%; left: 50%; transform: translate(-50%,-50%);
+  }
+  .card-flyer1::after {
+    content: 'PROFESSIONAL';
+    position: absolute;
+    font-family: 'Bebas Neue'; font-size: 0.9rem; letter-spacing: 0.25em;
+    color: rgba(255,255,255,0.6); text-align: center;
+    top: 36%; left: 50%; transform: translateX(-50%);
+  }
+
+  .card-poster1 {
+    background: linear-gradient(160deg, #0d0d0d 0%, #1a0000 60%, #2d0505 100%);
+  }
+  .card-poster1::before {
+    content: '"BEGIN YOUR OWN STYLE"';
+    position: absolute;
+    font-family: 'Bebas Neue'; font-size: 1.5rem; letter-spacing: 0.08em;
+    color: #C9A84C; text-align: center; line-height: 1.3;
+    top: 50%; left: 50%; transform: translate(-50%,-50%);
+    width: 80%;
+  }
+
+  .card-sticker {
+    background: #111;
+  }
+  .card-sticker::before {
+    content: 'TASTY FOODS';
+    position: absolute;
+    font-family: 'Bebas Neue'; font-size: 2.2rem; letter-spacing: 0.12em;
+    color: #fff; text-align: center;
+    top: 42%; left: 50%; transform: translate(-50%,-50%);
+    width: 80%;
+  }
+  .card-sticker::after {
+    content: '🍔 BURGER · SANDWICH · JUICE';
+    position: absolute;
+    font-family: 'Space Grotesk'; font-size: 0.65rem; letter-spacing: 0.15em;
+    color: #E8192C; text-align: center;
+    top: 62%; left: 50%; transform: translateX(-50%);
+    text-transform: uppercase; white-space: nowrap;
+  }
+
+  .card-box {
+    background: linear-gradient(135deg, #1a0a2e 0%, #2d1060 100%);
+  }
+  .card-box::before {
+    content: 'RAF PERFUME';
+    position: absolute;
+    font-family: 'Bebas Neue'; font-size: 2rem; letter-spacing: 0.2em;
+    color: #C9A84C; text-align: center;
+    top: 40%; left: 50%; transform: translate(-50%,-50%);
+  }
+  .card-box::after {
+    content: 'PACKAGING DESIGN';
+    position: absolute;
+    font-family: 'Space Grotesk'; font-size: 0.65rem; letter-spacing: 0.2em;
+    color: rgba(201,168,76,0.5); text-align: center;
+    top: 60%; left: 50%; transform: translateX(-50%);
+    text-transform: uppercase;
+  }
+
+  .card-die {
+    background: #e8e8e8;
+  }
+  .card-die::before {
+    content: 'DIE CUT DESIGN';
+    position: absolute;
+    font-family: 'Bebas Neue'; font-size: 1.8rem; letter-spacing: 0.12em;
+    color: #cc0000; text-align: center;
+    top: 42%; left: 50%; transform: translate(-50%,-50%);
+  }
+  .card-die::after {
+    content: 'BARBAR · MARKETTE · JUMP';
+    position: absolute;
+    font-family: 'Space Grotesk'; font-size: 0.62rem; letter-spacing: 0.2em;
+    color: rgba(10,10,10,0.5); text-align: center;
+    top: 62%; left: 50%; transform: translateX(-50%);
+    text-transform: uppercase;
+  }
+
+  .card-social {
+    background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+  }
+  .card-social::before {
+    content: 'SOCIAL MEDIA';
+    position: absolute;
+    font-family: 'Bebas Neue'; font-size: 2rem; letter-spacing: 0.15em;
+    color: #fff; text-align: center;
+    top: 40%; left: 50%; transform: translate(-50%,-50%);
+  }
+  .card-social::after {
+    content: 'ADS · BANNERS · CONTENT';
+    position: absolute;
+    font-family: 'Space Grotesk'; font-size: 0.62rem; letter-spacing: 0.2em;
+    color: rgba(255,255,255,0.4); text-align: center;
+    top: 62%; left: 50%; transform: translateX(-50%);
+    text-transform: uppercase;
+  }
+
+  .card-branding {
+    background: linear-gradient(135deg, #0a0a0a 0%, #1c1c1c 100%);
+    border: 1px solid rgba(201,168,76,0.2);
+  }
+  .card-branding::before {
+    content: 'BRAND IDENTITY';
+    position: absolute;
+    font-family: 'Bebas Neue'; font-size: 1.8rem; letter-spacing: 0.12em;
+    color: #C9A84C; text-align: center;
+    top: 42%; left: 50%; transform: translate(-50%,-50%);
+  }
+
+  .card-print {
+    background: linear-gradient(160deg, #001f3f, #003366);
+  }
+  .card-print::before {
+    content: 'SHARP · TRIUMPH-ADLER';
+    position: absolute;
+    font-family: 'Bebas Neue'; font-size: 1.4rem; letter-spacing: 0.12em;
+    color: #fff; text-align: center;
+    top: 38%; left: 50%; transform: translate(-50%,-50%); width: 80%;
+  }
+  .card-print::after {
+    content: 'PRINT & LARGE FORMAT';
+    position: absolute;
+    font-family: 'Space Grotesk'; font-size: 0.62rem; letter-spacing: 0.2em;
+    color: rgba(255,255,255,0.4); text-align: center;
+    top: 60%; left: 50%; transform: translateX(-50%);
+    text-transform: uppercase;
+  }
+
+  /* ── CONTACT ── */
+  #contact {
+    background: var(--ink);
+    position: relative;
+    overflow: hidden;
+  }
+  #contact::before {
+    content: '';
+    position: absolute; top: 0; right: 0;
+    width: 500px; height: 500px;
+    background: radial-gradient(circle, rgba(232,25,44,0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: start;
+  }
+  .contact-lead {
+    font-size: clamp(1.1rem, 2vw, 1.4rem);
+    font-weight: 300;
+    line-height: 1.7;
+    color: rgba(245,242,237,0.65);
+    margin-bottom: 48px;
+  }
+  .contact-items { display: flex; flex-direction: column; gap: 24px; }
+  .contact-item {
+    display: flex; align-items: flex-start; gap: 20px;
+  }
+  .contact-icon {
+    width: 40px; height: 40px;
+    border: 1px solid rgba(245,242,237,0.12);
+    border-radius: 2px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1rem; flex-shrink: 0;
+    color: var(--red);
+  }
+  .contact-detail-label {
+    font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase;
+    color: rgba(245,242,237,0.35); margin-bottom: 4px;
+  }
+  .contact-detail-val {
+    font-size: 0.95rem;
+    color: var(--paper);
+  }
+  .contact-detail-val a { color: inherit; text-decoration: none; }
+  .contact-detail-val a:hover { color: var(--red); }
+
+  /* software pills */
+  .software-list {
+    display: flex; flex-direction: column; gap: 16px; margin-top: 12px;
+  }
+  .software-row {
+    display: flex; align-items: center; gap: 16px;
+  }
+  .sw-badge {
+    width: 36px; height: 36px;
+    border-radius: 6px;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 700; font-size: 0.7rem;
+    letter-spacing: 0.05em; flex-shrink: 0;
+  }
+  .sw-ai { background: #FF9A00; color: #000; }
+  .sw-ps { background: #001E36; color: #31A8FF; }
+  .sw-id { background: #49021F; color: #FF3366; }
+  .sw-wd { background: #2B5797; color: #fff; }
+  .sw-name { font-size: 0.85rem; color: rgba(245,242,237,0.7); }
+
+  /* ── FOOTER ── */
+  footer {
+    padding: 40px 48px;
+    border-top: 1px solid var(--border);
+    display: flex; justify-content: space-between; align-items: center;
+    flex-wrap: wrap; gap: 16px;
+  }
+  .footer-copy {
+    font-size: 0.78rem;
+    color: rgba(245,242,237,0.25);
+    letter-spacing: 0.05em;
+  }
+  .footer-back {
+    font-size: 0.78rem;
+    color: rgba(245,242,237,0.35);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .footer-back:hover { color: var(--red); }
+
+  /* ── MARQUEE ── */
+  .marquee-wrap {
+    overflow: hidden;
+    padding: 28px 0;
+    background: var(--red);
+    white-space: nowrap;
+  }
+  .marquee-track {
+    display: inline-block;
+    animation: marquee 18s linear infinite;
+  }
+  @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+  .marquee-item {
+    display: inline-block;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.1rem;
+    letter-spacing: 0.2em;
+    color: rgba(255,255,255,0.85);
+    padding: 0 40px;
+  }
+  .marquee-dot {
+    display: inline-block;
+    width: 6px; height: 6px;
+    background: rgba(255,255,255,0.4);
+    border-radius: 50%;
+    vertical-align: middle;
+    margin: 0 4px;
+  }
+
+  /* ── SCROLL REVEAL ── */
+  .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.65s ease, transform 0.65s ease;
+  }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    nav { padding: 16px 24px; }
+    .nav-links { display: none; }
+    section { padding: 80px 24px; }
+    #hero { padding: 100px 24px 80px; }
+    .hero-stats { position: static; margin-top: 48px; flex-direction: row; gap: 32px; text-align: left; }
+    .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 48px; }
+    .portfolio-grid { grid-template-columns: repeat(2, 1fr); }
+    .portfolio-item.wide { grid-column: span 1; }
+    .exp-item { grid-template-columns: 1fr; gap: 8px; }
+    footer { padding: 32px 24px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">SAYEED <span>AFRIDI</span></div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#portfolio">Portfolio</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">Graphic Designer &amp; Production Manager</div>
+    <h1 class="hero-name">
+      <div class="line1">SAYEED</div>
+      <div class="line2">AFRIDI</div>
+    </h1>
+    <p class="hero-tagline">Crafting bold visual identities, print layouts, and brand stories — from Dubai to the world.</p>
+    <div class="hero-cta">
+      <a href="#portfolio" class="btn-primary">View Portfolio</a>
+      <a href="#contact" class="btn-ghost">Get In Touch</a>
+    </div>
+  </div>
+  <div class="hero-stats">
+    <div>
+      <div class="stat-num">10+</div>
+      <div class="stat-label">Years of design</div>
+    </div>
+    <div>
+      <div class="stat-num">3</div>
+      <div class="stat-label">Countries worked</div>
+    </div>
+    <div>
+      <div class="stat-num">∞</div>
+      <div class="stat-label">Ideas created</div>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-wrap">
+  <div class="marquee-track">
+    <span class="marquee-item">Flyer Design</span><span class="marquee-dot"></span>
+    <span class="marquee-item">Poster Design</span><span class="marquee-dot"></span>
+    <span class="marquee-item">Brand Identity</span><span class="marquee-dot"></span>
+    <span class="marquee-item">Die Cut Packaging</span><span class="marquee-dot"></span>
+    <span class="marquee-item">Box Design</span><span class="marquee-dot"></span>
+    <span class="marquee-item">Social Media Graphics</span><span class="marquee-dot"></span>
+    <span class="marquee-item">Large Format Print</span><span class="marquee-dot"></span>
+    <span class="marquee-item">Sticker Design</span><span class="marquee-dot"></span>
+    <span class="marquee-item">Flyer Design</span><span class="marquee-dot"></span>
+    <span class="marquee-item">Poster Design</span><span class="marquee-dot"></span>
+    <span class="marquee-item">Brand Identity</span><span class="marquee-dot"></span>
+    <span class="marquee-item">Die Cut Packaging</span><span class="marquee-dot"></span>
+    <span class="marquee-item">Box Design</span><span class="marquee-dot"></span>
+    <span class="marquee-item">Social Media Graphics</span><span class="marquee-dot"></span>
+    <span class="marquee-item">Large Format Print</span><span class="marquee-dot"></span>
+    <span class="marquee-item">Sticker Design</span><span class="marquee-dot"></span>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-label reveal">Profile</div>
+  <div class="section-title reveal">About Me</div>
+  <div class="divider"></div>
+  <div class="about-grid">
+    <div class="reveal">
+      <p class="about-bio">
+        I'm a <strong>creative graphic designer</strong> based in Dubai, UAE, with over a decade of hands-on experience turning ideas into compelling visual language. From concept to production, I specialise in <strong>print design, brand identity, packaging, and digital graphics</strong> — built on a foundation of precision and creative thinking.
+      </p>
+      <br><br>
+      <p class="about-bio">
+        Currently working as <strong>Graphic Designer & Production Manager</strong> at Golden Future Advertising, Dubai. I've worn many hats — from running my own print shop in Bangladesh to leading design at advertising agencies. My work spans flyers, posters, sticker designs, die cuts, and large-format output.
+      </p>
+      <br><br>
+      <p class="about-bio">
+        I thrive in fast-paced, client-facing environments where <strong>consistency, creativity, and deadlines</strong> all matter equally. Fluent in English, Bangla, and Hindi — I communicate design as clearly as I create it.
+      </p>
+      <br><br>
+      <div class="software-list">
+        <div class="software-row">
+          <div class="sw-badge sw-ai">Ai</div>
+          <div class="sw-name">Adobe Illustrator CC</div>
+        </div>
+        <div class="software-row">
+          <div class="sw-badge sw-ps">Ps</div>
+          <div class="sw-name">Adobe Photoshop CC</div>
+        </div>
+        <div class="software-row">
+          <div class="sw-badge sw-id">Id</div>
+          <div class="sw-name">Adobe InDesign CC</div>
+        </div>
+        <div class="software-row">
+          <div class="sw-badge sw-wd">W</div>
+          <div class="sw-name">Microsoft Word</div>
+        </div>
+      </div>
+    </div>
+    <div class="reveal">
+      <div class="skills-grid">
+        <div class="skill-row">
+          <div class="skill-meta"><span>Adobe Illustrator</span><span>92%</span></div>
+          <div class="skill-bar"><div class="skill-fill" style="width:92%"></div></div>
+        </div>
+        <div class="skill-row">
+          <div class="skill-meta"><span>Adobe Photoshop</span><span>90%</span></div>
+          <div class="skill-bar"><div class="skill-fill" style="width:90%"></div></div>
+        </div>
+        <div class="skill-row">
+          <div class="skill-meta"><span>Adobe InDesign</span><span>88%</span></div>
+          <div class="skill-bar"><div class="skill-fill" style="width:88%"></div></div>
+        </div>
+        <div class="skill-row">
+          <div class="skill-meta"><span>Print Production</span><span>95%</span></div>
+          <div class="skill-bar"><div class="skill-fill" style="width:95%"></div></div>
+        </div>
+        <div class="skill-row">
+          <div class="skill-meta"><span>Brand Identity</span><span>85%</span></div>
+          <div class="skill-bar"><div class="skill-fill" style="width:85%"></div></div>
+        </div>
+        <div class="skill-row">
+          <div class="skill-meta"><span>Packaging / Die Cut</span><span>82%</span></div>
+          <div class="skill-bar"><div class="skill-fill" style="width:82%"></div></div>
+        </div>
+        <div class="skill-row">
+          <div class="skill-meta"><span>Social Media Design</span><span>88%</span></div>
+          <div class="skill-bar"><div class="skill-fill" style="width:88%"></div></div>
+        </div>
+        <div class="skill-row">
+          <div class="skill-meta"><span>3D Design Concepts</span><span>70%</span></div>
+          <div class="skill-bar"><div class="skill-fill" style="width:70%"></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="section-label reveal">Career</div>
+  <div class="section-title reveal">Experience</div>
+  <div class="divider"></div>
+  <div class="exp-list">
+    <div class="exp-item reveal">
+      <div class="exp-period">Mar 2022 — Present<br><br>Dubai, UAE</div>
+      <div>
+        <div class="exp-role">Graphic Designer & Production Manager</div>
+        <div class="exp-company">Golden Future Advertising — Dubai, UAE</div>
+        <p class="exp-desc">Creating images, layouts, logos, and illustrations from concept to production. Ensuring brand consistency for clients' corporate and promotional materials. Designing advertisements, brochures, flyers, and digital graphics. Full oversight of print layout development for digital and offset jobs, vinyl, and large-format output.</p>
+      </div>
+    </div>
+    <div class="exp-item reveal">
+      <div class="exp-period">Feb 2021 — Jan 2022<br><br>Bangladesh</div>
+      <div>
+        <div class="exp-role">Senior Graphic Designer</div>
+        <div class="exp-company">Saleh Art — Bangladesh</div>
+        <p class="exp-desc">Created social media and digital platform graphics. Produced images, layouts, logos, and illustrations from concept. Developed print layouts for digital and offset jobs, vinyl, and large-format output.</p>
+      </div>
+    </div>
+    <div class="exp-item reveal">
+      <div class="exp-period">Nov 2014 — 2021<br><br>Bangladesh</div>
+      <div>
+        <div class="exp-role">Graphic Designer & Owner</div>
+        <div class="exp-company">Linat Printers — Bangladesh</div>
+        <p class="exp-desc">Founded and operated own print and design shop. Developed illustrations, logos, and branding. Created graphics for social media and digital platforms. Designed and managed social media paid advertisements. Built banners and graphic content for client websites.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PORTFOLIO -->
+<section id="portfolio">
+  <div class="section-label reveal">Selected Work</div>
+  <div class="section-title reveal">Portfolio</div>
+  <div class="divider"></div>
+  <div class="portfolio-filter reveal">
+    <button class="filter-btn active" onclick="filterWork(this, 'all')">All Work</button>
+    <button class="filter-btn" onclick="filterWork(this, 'flyer')">Flyer Design</button>
+    <button class="filter-btn" onclick="filterWork(this, 'poster')">Poster Design</button>
+    <button class="filter-btn" onclick="filterWork(this, 'packaging')">Packaging</button>
+    <button class="filter-btn" onclick="filterWork(this, 'digital')">Digital</button>
+  </div>
+  <div class="portfolio-grid">
+
+    <div class="portfolio-item wide" data-cat="flyer">
+      <div class="design-card card-flyer1"></div>
+      <div class="portfolio-overlay">
+        <div class="portfolio-info">
+          <div class="portfolio-cat">Flyer Design</div>
+          <div class="portfolio-title">Cleaning Services Campaign</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="portfolio-item" data-cat="packaging">
+      <div class="design-card card-box"></div>
+      <div class="portfolio-overlay">
+        <div class="portfolio-info">
+          <div class="portfolio-cat">Box Design</div>
+          <div class="portfolio-title">RAF Perfume Packaging</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="portfolio-item" data-cat="digital">
+      <div class="design-card card-social"></div>
+      <div class="portfolio-overlay">
+        <div class="portfolio-info">
+          <div class="portfolio-cat">Social Media</div>
+          <div class="portfolio-title">Digital Ad Graphics</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="portfolio-item" data-cat="poster">
+      <div class="design-card card-poster1"></div>
+      <div class="portfolio-overlay">
+        <div class="portfolio-info">
+          <div class="portfolio-cat">Poster Design</div>
+          <div class="portfolio-title">Roweis Watch Campaign</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="portfolio-item wide" data-cat="digital">
+      <div class="design-card card-sticker"></div>
+      <div class="portfolio-overlay">
+        <div class="portfolio-info">
+          <div class="portfolio-cat">Sticker / Label Design</div>
+          <div class="portfolio-title">Tasty Foods Series</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="portfolio-item" data-cat="flyer">
+      <div class="design-card card-print"></div>
+      <div class="portfolio-overlay">
+        <div class="portfolio-info">
+          <div class="portfolio-cat">Print Design</div>
+          <div class="portfolio-title">Sharp & Triumph-Adler</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="portfolio-item" data-cat="packaging">
+      <div class="design-card card-die"></div>
+      <div class="portfolio-overlay">
+        <div class="portfolio-info">
+          <div class="portfolio-cat">Die Cut Design</div>
+          <div class="portfolio-title">Barbar & Markette</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="portfolio-item" data-cat="poster">
+      <div class="design-card card-branding"></div>
+      <div class="portfolio-overlay">
+        <div class="portfolio-info">
+          <div class="portfolio-cat">Brand Identity</div>
+          <div class="portfolio-title">Saleem Perfumes</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-label reveal">Let's talk</div>
+  <div class="section-title reveal">Get In Touch</div>
+  <div class="divider"></div>
+  <div class="contact-grid">
+    <div class="reveal">
+      <p class="contact-lead">Available for freelance projects, full-time roles, and creative collaborations. Based in Dubai — open to opportunities worldwide.</p>
+      <div class="contact-items">
+        <div class="contact-item">
+          <div class="contact-icon">📧</div>
+          <div>
+            <div class="contact-detail-label">Email</div>
+            <div class="contact-detail-val"><a href="mailto:sayeedafridi0000@gmail.com">sayeedafridi0000@gmail.com</a></div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">📱</div>
+          <div>
+            <div class="contact-detail-label">Mobile / WhatsApp</div>
+            <div class="contact-detail-val">+971 54 481 3464</div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">📍</div>
+          <div>
+            <div class="contact-detail-label">Location</div>
+            <div class="contact-detail-val">Deira, Dubai — UAE</div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">🌐</div>
+          <div>
+            <div class="contact-detail-label">Nationality</div>
+            <div class="contact-detail-val">Bangladeshi</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="reveal">
+      <div class="section-label" style="margin-bottom:24px;">Languages</div>
+      <div class="skills-grid">
+        <div class="skill-row">
+          <div class="skill-meta"><span>Bangla</span><span>Native</span></div>
+          <div class="skill-bar"><div class="skill-fill" style="width:100%"></div></div>
+        </div>
+        <div class="skill-row">
+          <div class="skill-meta"><span>Hindi</span><span>Fluent — 90%</span></div>
+          <div class="skill-bar"><div class="skill-fill" style="width:90%"></div></div>
+        </div>
+        <div class="skill-row">
+          <div class="skill-meta"><span>English</span><span>Professional — 75%</span></div>
+          <div class="skill-bar"><div class="skill-fill" style="width:75%"></div></div>
+        </div>
+      </div>
+      <br><br>
+      <div class="section-label" style="margin-bottom:24px;">Education</div>
+      <div style="display:flex;flex-direction:column;gap:20px;">
+        <div>
+          <div style="font-size:0.78rem;letter-spacing:0.1em;color:rgba(245,242,237,0.35);text-transform:uppercase;margin-bottom:4px;">2017 – 2019</div>
+          <div style="font-size:1rem;color:var(--paper);font-weight:500;">Diploma in Graphic Designing</div>
+          <div style="font-size:0.82rem;color:var(--red);margin-top:4px;">National Institute of Technology (NIT)</div>
+        </div>
+        <div>
+          <div style="font-size:0.78rem;letter-spacing:0.1em;color:rgba(245,242,237,0.35);text-transform:uppercase;margin-bottom:4px;">2015 – 2016</div>
+          <div style="font-size:1rem;color:var(--paper);font-weight:500;">Secondary School Certificate (SSC)</div>
+          <div style="font-size:0.82rem;color:var(--red);margin-top:4px;">Shah Waliullah Institute, Chittagong</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-copy">© 2024 Sayeed Afridi — All Rights Reserved</div>
+  <a href="#hero" class="footer-back">↑ Back to Top</a>
+</footer>
+
+<script>
+  // Scroll reveal
+  const revealEls = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        // Animate skill bars when in view
+        e.target.querySelectorAll('.skill-fill').forEach(f => f.classList.add('animate'));
+      }
+    });
+  }, { threshold: 0.1 });
+  revealEls.forEach(el => observer.observe(el));
+
+  // Also trigger skill bars in about section on scroll
+  const aboutObs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        document.querySelectorAll('.skill-fill').forEach(f => f.classList.add('animate'));
+      }
+    });
+  }, { threshold: 0.2 });
+  const aboutSec = document.getElementById('about');
+  if (aboutSec) aboutObs.observe(aboutSec);
+
+  // Portfolio filter
+  function filterWork(btn, cat) {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    document.querySelectorAll('.portfolio-item').forEach(item => {
+      if (cat === 'all' || item.dataset.cat === cat) {
+        item.style.display = '';
+      } else {
+        item.style.display = 'none';
+      }
+    });
+  }
+
+  // Nav active state on scroll
+  const sections = document.querySelectorAll('section[id]');
+  window.addEventListener('scroll', () => {
+    let cur = '';
+    sections.forEach(s => {
+      if (window.scrollY >= s.offsetTop - 80) cur = s.id;
+    });
+    document.querySelectorAll('.nav-links a').forEach(a => {
+      a.style.color = a.getAttribute('href') === '#' + cur
+        ? 'rgba(245,242,237,1)'
+        : 'rgba(245,242,237,0.55)';
+    });
+  });
+</script>
+</body>
+</html>
