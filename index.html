@@ -6,6 +6,56 @@
 <title>Sayeed Afridi — Graphic Designer</title>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Bebas+Neue&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
+  <style>
+.portfolio-section {
+    padding: 60px 20px;
+    text-align: center;
+    background-color: #f9f9f9;
+}
+.portfolio-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    color: #333;
+}
+.portfolio-section p {
+    color: #666;
+    margin-bottom: 40px;
+}
+/* Responsive Grid Configuration */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.project-card {
+    background: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+}
+.project-card img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+}
+.project-info {
+    padding: 15px;
+    text-align: left;
+}
+.project-info h3 {
+    margin: 0;
+    font-size: 1.2rem;
+    color: #222;
+}
+</style>
   :root {
     --ink: #0A0A0A;
     --paper: #F5F2ED;
@@ -26,7 +76,37 @@
     font-family: 'Space Grotesk', sans-serif;
     overflow-x: hidden;
   }
-
+<section id="portfolio" class="portfolio-section">
+    <h2>My Creative Projects</h2>
+    <p>A showcase of my latest graphic design and advertising work.</p>
+    
+    <div class="projects-grid">
+        <div class="project-card">
+            <img src="images/project1.jpg" alt="Graphic Design Project 1">
+            <div class="project-info"><h3>Project Title 1</h3></div>
+        </div>
+        <div class="project-card">
+            <img src="images/project2.jpg" alt="Graphic Design Project 2">
+            <div class="project-info"><h3>Project Title 2</h3></div>
+        </div>
+        <div class="project-card">
+            <img src="images/project3.jpg" alt="Graphic Design Project 3">
+            <div class="project-info"><h3>Project Title 3</h3></div>
+        </div>
+        <div class="project-card">
+            <img src="images/project4.jpg" alt="Graphic Design Project 4">
+            <div class="project-info"><h3>Project Title 4</h3></div>
+        </div>
+        <div class="project-card">
+            <img src="images/project5.jpg" alt="Graphic Design Project 5">
+            <div class="project-info"><h3>Project Title 5</h3></div>
+        </div>
+        <div class="project-card">
+            <img src="images/project6.jpg" alt="Graphic Design Project 6">
+            <div class="project-info"><h3>Project Title 6</h3></div>
+        </div>
+    </div>
+</section>
   /* ── NAV ── */
   nav {
     position: fixed; top: 0; left: 0; right: 0; z-index: 100;
